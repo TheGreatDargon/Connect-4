@@ -8,15 +8,15 @@ In the next section I will go over my To-Do list. I will also provide a short de
 
 # To-Do
 
-[X] Create Board
-[X] Display the Board
-[X] Allow player to place Pieces
-[X] Check if a slot is empty
-[X] Implement "Gravity" to move pieces to bottom of column
-[X] Check if a column is full
-[X] Allow for 2 players
-[X] Create win condition logic
-    [X] Create row win logic
-    [X] Create col win logic
-    [X] Create Diag win logic
-[] Create a simple computer algorithm for one Player
+- [X] Create Board
+- [X] Display the Board
+- [X] Allow player to place Pieces
+- [X] Check if a slot is empty
+- [X] Implement "Gravity" to move pieces to bottom of column
+- [X] Check if a column is full
+- [X] Allow for 2 players
+\- [X] Create win condition logic
+    - [X] Create row win logic
+    - [X] Create col win logic
+    - [X] Create Diag win logic
+- [] Create a simple computer algorithm for one Player
