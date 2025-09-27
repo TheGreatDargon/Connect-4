@@ -19,4 +19,4 @@ In the next section I will go over my To-Do list. I will also provide a short de
     - [X] Create row win logic
     - [X] Create col win logic
     - [X] Create Diag win logic
-- [] Create a simple computer algorithm for one Player
+- [ ] Create a simple computer algorithm for one Player
