@@ -8,8 +8,8 @@ connect = 4
 theBoard = np.array([[" 0 " for i in range(cols)] for j in range(rows)])
 
 def printBoard():
-    for i in range(0,6):
-        print(theBoard[i])
+    for row in theBoard:
+        print(row)
 
 def is_Empty(row, col):
     if theBoard[row][col] == " 0 ":
@@ -98,17 +98,27 @@ def twoPlayer():
             print(f"{player2} wins!")
             return 0
         
+def changeDimensions():
+    global rows
+    global cols
+    global theBoard
 
-
+    rows = int(input("Please enter the number of rows you want: "))
+    cols = int(input("Please enter the number of columns you want: "))
+    theBoard = np.array([[" 0 " for i in range(cols)] for j in range(rows)])
+    print(f"Your new board is {rows} rows by {cols} columns.")
+    main()
 
 def main():
     choice = 0
     while choice == 0:
-        choice = int(input("Welcome to Connect-4, Please choose a game mode:\n1. One Player\n2. Two Player\n3. Quit\n"))
+        choice = int(input("Welcome to Connect-4, Please choose a game mode:\n1. One Player\n2. Two Player\n3. Change Dimensions\n4. Quit\n"))
         if choice == 1:
             onePlayer()
         elif choice == 2:
             twoPlayer()
+        elif choice == 3:
+            changeDimensions()
         else:
             return 0
 
