@@ -70,16 +70,12 @@ def onePlayer():
     player1 = " R "
     comp = " Y "
 
-def twoPlayer():
-    player1 = " R "
-    player2 = " Y "
-
     moved = False
 
     while is_Winner(player1) is False or is_Winner(player2) is False:
-        move = input(f"Player 1 choose a column to place a piece (1-{cols}): ")
+        move = input(f"Player 1 ({player1}) choose a column to place a piece (1-{cols}): ")
         while makeMove(player1, int(move)-1) != True:
-            move = input(f"Player 1 choose a column to place a piece (1-{cols}): ")
+            move = input(f"Player 1 ({player1}) choose a column to place a piece (1-{cols}): ")
             print(f"{player1}, That column is full, please choose another column.")
             printBoard()
             continue
@@ -87,9 +83,36 @@ def twoPlayer():
         if is_Winner(player1) is True:
             print(f"{player1} wins!")
             return 0
-        move = input(f"Player 2 choose a column to place a piece (1-{cols}): ")
+        
+        randomMove = random.randint(0, cols-1)
+        print(f"Computer chooses column {randomMove+1}")
+        while makeMove(comp, randomMove) != True:
+            continue
+        printBoard()
+        if is_Winner(comp) is True:
+            print(f"{comp} wins!")
+            return 0
+
+def twoPlayer():
+    player1 = " R "
+    player2 = " Y "
+
+    moved = False
+
+    while is_Winner(player1) is False or is_Winner(player2) is False:
+        move = input(f"Player 1 ({player1}) choose a column to place a piece (1-{cols}): ")
+        while makeMove(player1, int(move)-1) != True:
+            move = input(f"Player 1 ({player1}) choose a column to place a piece (1-{cols}): ")
+            print(f"{player1}, That column is full, please choose another column.")
+            printBoard()
+            continue
+        printBoard()
+        if is_Winner(player1) is True:
+            print(f"{player1} wins!")
+            return 0
+        move = input(f"Player 2 ({player2}) choose a column to place a piece (1-{cols}): ")
         while makeMove(player2, int(move)-1) != True:
-            move = input(f"Player 2 choose a column to place a piece (1-{cols}): ")
+            move = input(f"Player 2 ({player2}) choose a column to place a piece (1-{cols}): ")
             print(f"{player2}, That column is full, please choose another column.")
             printBoard()
             continue
