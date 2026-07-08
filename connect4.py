@@ -16,6 +16,13 @@ def is_Empty(row, col):
         return True
     else:
         return False
+    
+def is_Full():
+    for r in range(rows):
+        for c in range(cols):
+            if theBoard[r][c] == " 0 ":
+                return False
+    return True
 
 def is_Winner(piece):
 
@@ -40,7 +47,7 @@ def is_Winner(piece):
     # Check Diagonals 
     # up right
     for r in range(rows - connect + 1):
-        for c in range(rows - connect + 1):
+        for c in range(cols - connect + 1):
             if (theBoard[r][c] == piece and
                 theBoard[r+1][c+1] == piece and
                 theBoard[r+2][c+2] == piece and
@@ -57,7 +64,12 @@ def is_Winner(piece):
             
     return False    
 def makeMove(player, move):
-    if move < 0 or move > 6:
+    if is_Full() == True:
+        print("The board is full, no more moves can be made. The game is a draw.")
+        input("Press ENTER key to exit.")
+        exit()
+
+    if move < 0 or move > cols-1:
         print("You didn't put the piece in a column, Try again.")
         return False
     for i in range(rows-1, -1, -1):
@@ -74,7 +86,7 @@ def onePlayer():
 
     printBoard()
 
-    while is_Winner(player1) is False or is_Winner(player2) is False:
+    while is_Winner(player1) is False or is_Winner(comp) is False:
         move = input(f"Player 1 ({player1}) choose a column to place a piece (1-{cols}): ")
         while makeMove(player1, int(move)-1) != True:
             move = input(f"Player 1 ({player1}) choose a column to place a piece (1-{cols}): ")
