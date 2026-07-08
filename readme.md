@@ -12,7 +12,6 @@ This game uses the libraries numpy and random, you will need to install these li
 
 ```
 pip install numpy
-pip install random
 ```
 
 After installing the associated libraries you can run the program by running these commands depending on the version of python you have:
