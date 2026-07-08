@@ -73,3 +73,9 @@ The option for changing dimensions allows the player to choose the rows and colu
 - [X] Create a simple computer algorithm for one Player
 - [X] Fix board not printing after selecting a full column
 - [X] Add option for player to choose dimensions of board
+
+# Future Ideas
+
+- [ ] Add more robust computer to play against
+- [ ] Add option for a player to play online with other players
+- [ ] Adapt a GUI library to this project
