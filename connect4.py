@@ -1,8 +1,9 @@
 import numpy as np
+import random
 
 cols = 7
 rows = 6
-connect = 4  # Connections required to win
+connect = 4
 
 theBoard = np.array([[" 0 " for i in range(cols)] for j in range(rows)])
 
@@ -75,21 +76,22 @@ def twoPlayer():
 
     moved = False
 
-    # ! Infinite loop for now until I implement checking for a winner !
     while is_Winner(player1) is False or is_Winner(player2) is False:
-        move = input("Player 1 choose a column to place a piece: ")
-        while makeMove(player1, int(move)) != True:
-            move = input("Player 1 choose a column to place a piece: ")
+        move = input(f"Player 1 choose a column to place a piece (1-{cols}): ")
+        while makeMove(player1, int(move)-1) != True:
+            move = input(f"Player 1 choose a column to place a piece (1-{cols}): ")
             print(f"{player1}, That column is full, please choose another column.")
+            printBoard()
             continue
         printBoard()
         if is_Winner(player1) is True:
             print(f"{player1} wins!")
             return 0
-        move = input("Player 2 choose a column to place a piece: ")
-        while makeMove(player2, int(move)) != True:
-            move = input("Player 2 choose a column to place a piece: ")
+        move = input(f"Player 2 choose a column to place a piece (1-{cols}): ")
+        while makeMove(player2, int(move)-1) != True:
+            move = input(f"Player 2 choose a column to place a piece (1-{cols}): ")
             print(f"{player2}, That column is full, please choose another column.")
+            printBoard()
             continue
         printBoard()
         if is_Winner(player2) is True:
