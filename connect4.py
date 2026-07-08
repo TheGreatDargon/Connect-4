@@ -72,6 +72,8 @@ def onePlayer():
 
     moved = False
 
+    printBoard()
+
     while is_Winner(player1) is False or is_Winner(player2) is False:
         move = input(f"Player 1 ({player1}) choose a column to place a piece (1-{cols}): ")
         while makeMove(player1, int(move)-1) != True:
@@ -98,6 +100,8 @@ def twoPlayer():
     player2 = " Y "
 
     moved = False
+
+    printBoard()
 
     while is_Winner(player1) is False or is_Winner(player2) is False:
         move = input(f"Player 1 ({player1}) choose a column to place a piece (1-{cols}): ")
@@ -128,6 +132,11 @@ def changeDimensions():
 
     rows = int(input("Please enter the number of rows you want: "))
     cols = int(input("Please enter the number of columns you want: "))
+
+    if rows < 4 or cols < 4:
+        print("This game only supports boards with at least 4 rows and 4 columns. Please try again.")
+        changeDimensions()
+    
     theBoard = np.array([[" 0 " for i in range(cols)] for j in range(rows)])
     print(f"Your new board is {rows} rows by {cols} columns.")
     main()
